@@ -15,4 +15,12 @@ class AuthManager extends Controller
     function loginPost(Request $request){
 
     }
+
+    function register(){
+
+    }
+
+    function registerPost(Request $request){
+        
+    }
 }
