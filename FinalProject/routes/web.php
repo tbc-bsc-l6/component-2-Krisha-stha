@@ -20,4 +20,6 @@ Route::middleware([
 
 route::get('/redirect', [HomeController::class, 'redirect']);
 
-route::get('/', [HomeController::class, 'index']);
+route::get('/product', [HomeController::class, 'product']);
+
+route::get('/', [AdminController::class, 'index']);
