@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,6 +21,6 @@ Route::middleware([
 
 route::get('/redirect', [HomeController::class, 'redirect']);
 
-route::get('/product', [HomeController::class, 'product']);
+route::get('/product', [AdminController::class, 'product']);
 
-route::get('/', [AdminController::class, 'index']);
+route::get('/', [HomeController::class, 'index']);
