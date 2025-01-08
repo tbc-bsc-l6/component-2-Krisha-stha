@@ -24,3 +24,5 @@ route::get('/redirect', [HomeController::class, 'redirect']);
 route::get('/product', [AdminController::class, 'product']);
 
 route::get('/', [HomeController::class, 'index']);
+
+route::post('/uploadproduct', [AdminController::class, 'uploadproduct']);
