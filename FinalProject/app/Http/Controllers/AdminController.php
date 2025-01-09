@@ -35,4 +35,8 @@ class AdminController extends Controller
     }
 
 
+    public function showproduct(){
+        return view('admin.showproduct'); 
+    }
+
 }
