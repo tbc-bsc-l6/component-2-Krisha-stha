@@ -24,9 +24,9 @@
   </head>
   <body>
         @include('admin.sidebar')
-        @include('admin.navbar')
 
-        <div class="container-fluid page-body-wrapper" style="margin-top: 100px; margin-left: 0; padding: 0 15px; width: 300%;">
+
+      <div class="container-fluid page-body-wrapper" style="margin-top: 100px; margin-left: 400px; padding: 0 15px; width: 300%;">
       <h1 class="title">Update Product</h1>
       <div style="padding-top:2%; padding-bottom:2%; margin-top:2%; margin-bottom:2%;">
         @if(session()->has('message'))
@@ -81,8 +81,9 @@
 
 
 
+    @include('admin.navbar')
 
 
-        @include('admin.script')
+    @include('admin.script')
   </body>
 </html>

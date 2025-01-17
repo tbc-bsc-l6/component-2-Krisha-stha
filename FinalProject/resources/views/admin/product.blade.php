@@ -24,11 +24,8 @@
   </head>
   <body>
     @include('admin.sidebar')
-    @include('admin.navbar')
 
-    <div class="container-fluid page-body-wrapper"  >
-      <h1 class="title">Add Product</h1>
-      <div style="padding-top:2%; padding-bottom:2%; margin-top:2%; margin-bottom:2%;">
+    <div style="padding-top:2%; padding-bottom:2%; margin-top:2%; margin-bottom:2%;">
         @if(session()->has('message'))
         <!-- <div class="alert alert-success alert-dismissible fade show" role="alert" style="height:10%; width:50%;"> -->
         <div class="alert alert-success alert-dismissible fade show p-2 m-1" role="alert" style="display: inline-block; min-width: 0; max-width: fit-content; word-wrap: break-word;">
@@ -38,9 +35,14 @@
         </div>
         @endif
       </div>
+    <div class="container-fluid page-body-wrapper" >
+    
+      <h1 class="title" style="margin-left:400px; padding-top:100px;">Add Product</h1>
+      
       <!-- Form Block -->
       <form action="{{ url('uploadproduct') }}" method="post" enctype="multipart/form-data">
         @csrf
+        <div style="padding-top: 100px;">
         <div style="padding-top:60px">
           <div style="padding: 10px;" class="raged">
             <label>Product title</label>
@@ -70,8 +72,11 @@
             <input class="btn btn-success" type="submit">
           </div>
         </div>
+        </div>
       </form>
     </div>
+
+    @include('admin.navbar')
 
     @include('admin.script')
   </body>

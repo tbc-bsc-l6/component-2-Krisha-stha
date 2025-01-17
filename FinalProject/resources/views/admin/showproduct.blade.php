@@ -5,7 +5,6 @@
   </head>
   <body>
         @include('admin.sidebar')
-        @include('admin.navbar')
 
         <!-- <div class="container-fluid page-body-wrapper" style="margin-top: -400px; margin-left: -400px; padding: 0 15px; width: 300%;"> -->
         <div style="width:700%; padding-bottom:30px;">
@@ -18,7 +17,7 @@
           </div>
           @endif
 
-            <table>
+            <table style="margin-left: 250px;">
                 <tr style = "background-color: grey;">
                     <td style="padding-left:50px;">Title</td>
                     <td style="padding-left:50px;">Description</td>
@@ -49,6 +48,9 @@
             </table>
 
         </div>
+
+        @include('admin.navbar')
+
         @include('admin.script')
   </body>
 </html>
