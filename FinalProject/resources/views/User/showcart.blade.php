@@ -126,6 +126,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <td style="padding: 10px; font-size: 20px;">Action</td>
         </tr>
 
+        <form>
         @foreach($cart as $carts)
         <tr style="background-color: black;">
             <td style="padding: 10px; color:white;">{{$carts->product_title}}</td>
@@ -136,6 +137,8 @@ https://templatemo.com/tm-546-sixteen-clothing
         </tr>
         @endforeach
     </table>
+    <button class="btn btn-success">Confirm Order</button>
+    </form>
     </div>
     
 
