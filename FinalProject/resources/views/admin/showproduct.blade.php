@@ -40,7 +40,7 @@
                     <td><image height="100" width="100" src="/productimage/{{$product->image}}"></td>
 
                     <td><a class = "btn btn-primary" href="{{url('updateview',$product->id)}}">Update</td>
-                    <td><a class = "btn btn-danger" href="{{url('deleteproduct',$product->id)}}">Delete</td>
+                    <td><a class = "btn btn-danger" onclick="return confirm('Are You Sure?')" href="{{url('deleteproduct',$product->id)}}">Delete</td>
 
                 </tr>
                 </div>
