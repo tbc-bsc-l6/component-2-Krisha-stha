@@ -32,7 +32,7 @@
                 @foreach($data as $product)
 
                 <div style="margin-top: 100px;">
-                <tr style="background-color: black; color: white; text-align: center; height: 40px;">
+                <tr style="color: white; text-align: center; height: 40px;">
                     <td>{{$product->title}}</td>
                     <td>{{$product->description}}</td>
                     <td>{{$product->quantity}}</td>

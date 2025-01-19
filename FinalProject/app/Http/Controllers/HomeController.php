@@ -141,4 +141,13 @@ class HomeController extends Controller
 
     }
 
+    public function pro()
+    {
+        $data = product::paginate(3);
+            $user=auth()->user();
+            $count=cart::where('phone',$user->phone)->count();
+            return view('user.pro', compact('data','count'));
+        
+    }
+
 }

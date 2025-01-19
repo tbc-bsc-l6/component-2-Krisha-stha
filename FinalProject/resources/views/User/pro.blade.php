@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <title>Sixteen Clothing HTML Template</title>
+
+    <title>Sixteen Clothing Products</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Header -->
     <header class="">
-      <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="index.html"><h2>Cuddle <em>Beans</em></h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@ https://templatemo.com/tm-546-sixteen-clothing
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+              <li class="nav-item active">
                 <a class="nav-link" href="{{url('home')}}">
                        Home</a>
                   <span class="sr-only">(current)</span>
@@ -74,7 +74,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('showcart')}}">
                             <i class="fas fa-shopping-cart"></i>
-                              Cart[{{$count}}]</a>
+                              Cart</a>
                         </li>
 
 
@@ -108,50 +108,77 @@ https://templatemo.com/tm-546-sixteen-clothing
           </div>
         </div>
       </nav>
-      @if(session()->has('message'))
-        <!-- <div class="alert alert-success alert-dismissible fade show" role="alert" style="height:10%; width:50%;"> -->
-        <div class="alert alert-success">
-            
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            {{ session()->get('message') }}
-        </div>
-      @endif
     </header>
 
-    <div style="padding: 100px;" align="center">
-    <table>
-        <tr style="background-color: white;">
-            <td style="padding: 20px; font-size: 20px;">Product Name</td>
-            <td style="padding: 20px; font-size: 20px;">Quantity</td>
-            <td style="padding: 20px; font-size: 20px;">Price</td>
-            <td style="padding: 20px; font-size: 20px;">Action</td>
-        </tr>
-
-        <form action="{{url('order')}}" method="POST">
-          @csrf
-        @foreach($cart as $carts)
-        <tr style="background-color: white;">
-            <td style="padding: 30px; color:black;">
-              <input type="text" name="productname[]" value="{{$carts->product_title}}" hidden="">
-              {{$carts->product_title}}</td>
-
-            <td style="padding: 30px; color:black;">
-            <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden="">
-              {{$carts->quantity}}</td>
-
-            <td style="padding: 30px; color:black;">
-            <input type="text" name="price[]" value="{{$carts->proce}}" hidden="">
-              {{$carts->proce}}</td>
-
-            <td style="padding: 30px; color:black;">
-                <a class="btn btn-danger" href="{{url('delete',$carts->id)}}">Delete</a></td>
-        </tr>
-        @endforeach
-    </table>
-    <button class="btn btn-success">Confirm Order</button>
-    </form>
+    <!-- Page Content -->
+    <div class="page-heading products-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>new arrivals</h4>
+              <h2>Cuddle Beans</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="latest-products">
+      <div class="container">
+        @foreach($data as $product)
+
+
+
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img height="300" width="150" src="/productimage/{{$product->image}}" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>{{$product->title}}</h4></a>
+                <h6>${{$product->price}}</h6>
+                <p>{{$product->description}}</p>
+
+                <form action="{{url('addcart',$product->id)}}" method="POST">
+                  @csrf 
+                  
+                  <input type="number" value="1" min="1" class="form-control" style="width:100px;" name="quantity">
+
+                  <br>
+
+                  <input class="btn btn-primary" type="submit" value="Add to cart">
+                </form>
+
+                <!-- <a href="btn btn-primary">Add to cart</a> -->
+            
+              </div> 
+            </div>
+          </div>
+
+          @endforeach
+          @if(method_exists($data,'links'))
+
+            <div class = "d-flex justify-content-center">
+             {!! $data->links() !!}
+            </div>
+
+            @endif
+      </div>
+    </div>
+
     
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+            
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
     <!-- Bootstrap core JavaScript -->
